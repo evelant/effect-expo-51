@@ -2,6 +2,7 @@
   "expo": {
     "name": "test-new-arch",
     "slug": "test-new-arch",
+    "entryPoint": "index.js",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.example.with-new-arch"

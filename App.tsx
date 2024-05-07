@@ -1,12 +1,27 @@
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import {Effect} from "effect"
+import {useEffect} from "react";
+import {LogBox} from "react-native"
+LogBox.install()
 
-Effect.runPromise(Effect.logInfo(`Effect is running`));
 
 export default function App() {
+    useEffect(() => {
+
+        setTimeout(() => {
+            try{
+                const e = require("effect")
+                e.Effect.runPromise(e.Effect.logInfo(`Effect is running`));
+            } catch(e: any) {
+                console.error(`error importing effect`, e.message, e.stack)
+                throw e
+            }
+        }, 2000)
+
+    },[])
   return (
     <View style={styles.container}>
       <LinearGradient
